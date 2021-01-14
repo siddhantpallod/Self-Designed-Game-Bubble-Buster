@@ -209,9 +209,8 @@ function draw(){
     score = 0;
     count = 0;
     
-    if(keyDown("space") || touches.length > 0){
+    if(keyDown("space")){
       board.velocityX = 5;
-      touches = [];
      level1.visible = false;
      heart1.visible = true;
     heart2.visible = true;
@@ -227,26 +226,21 @@ function draw(){
     if(ball.collide(board)){
     ball.x = board.x;
     }
-    
-    for(var i = 0; i < touches.length; i++){
 
-    ellipse(touches[i].x,touches[i].y,100,100);
-
-    if((keyDown("UP_ARROW") || (touches[i].x > 200  && touches[i].x < 400 )) && ball.y > 400){
+    if((keyDown("UP_ARROW")) && ball.y > 400){
       ball.velocityY = -12; 
     }
 
 
-    if((keyDown("LEFT_ARROW") || touches[i].x < 200 && touches[i].x > 0)){
+    if((keyDown("LEFT_ARROW"))){
       //ball.velocityY = -7;
       ball.velocityX = -7;
     }
 
-    if(keyDown("RIGHT_ARROW") || (touches[i].x > 400 && touches[i].x < 600)){
+    if(keyDown("RIGHT_ARROW")){
       //ball.velocityY = -7;
       ball.velocityX = 7;
     }
-  }
 
     ball.velocityY += 0.2;
 
